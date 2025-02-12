@@ -1,0 +1,9 @@
+Package: c.ghh.gsmetal
+Name: GSMetal
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Goblin Sword cheat. Features included: invincibility, always super power, endless jump, Skeleton king stunned, increased speed, 
+Maintainer: Ghh
+Author: Ghh
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
