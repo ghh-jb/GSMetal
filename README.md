@@ -1,5 +1,5 @@
 # GSMetal
-Goblin Sword cheat
+Goblin Sword cheat.
 Please, dont pirate the game, consider buying in on appstore!
 [Goblin Sword](https://apps.apple.com/en/app/goblin-sword/id905488045) on AppStore (en)
 # Features
