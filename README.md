@@ -25,6 +25,6 @@ The following open-source software is used:
 Set up theos, download SDK(isnt it built-in sdk?) and simply run:
 + `make package` if you are on rootful
 + `make package THEOS_PACKAGE_SCHEME=rootless` if you are on rootless
-+ `make package THEOS_PACKAGE_SCHEME=roothide` if you aare on roothide
++ `make package THEOS_PACKAGE_SCHEME=roothide` if you are on roothide
 # License
 GNU GENERAL PUBLIC LICENSE Version 3. See the `LICENSE` file.
