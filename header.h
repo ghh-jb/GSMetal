@@ -103,3 +103,82 @@
 - (void)playerBeam;
 - (void)gameover;
 @end
+
+@interface GameObject : CCSprite
+{
+    BOOL isActive;
+    int gameObjectType;
+    float life;
+    float maxlife;
+    int hpadjust;
+    int direction;
+    int scorepoints;
+    BOOL hasDeathAnim;
+    BOOL noVulnerable;
+    BOOL isHarmless;
+    BOOL phonex;
+    int x_adjust;
+}
+
+@property(nonatomic) BOOL isHarmless;
+@property(nonatomic) BOOL noVulnerable;
+@property(nonatomic) int scorepoints;
+@property(nonatomic) BOOL hasDeathAnim;
+@property(nonatomic) int direction;
+@property(nonatomic) int gameObjectType;
+@property(nonatomic) BOOL isActive;
+@property(nonatomic) float life;
+- (void)dealloc;
+- (void)updateLifeBar;
+- (void)lifebarPos;
+- (void)createLifeBar:(id)arg1;
+- (void)stopflash;
+- (void)startflash;
+- (void)redFlash;
+- (id)loadPlistForAnimationWithName:(id)arg1 andClassName:(id)arg2;
+- (void)loadAnim:(id)arg1 andClassName:(id)arg2;
+- (void)loadAnimWithDifName:(id)arg1 frameCount:(int)arg2 delay:(float)arg3 name2:(id)arg4;
+- (void)loadAnimWithName:(id)arg1 frameCount:(int)arg2 delay:(float)arg3;
+- (id)getAnim:(id)arg1;
+- (void)updateStateWithDeltaTime:(double)arg1;
+- (void)changeState:(int)arg1;
+- (id)init;
+@end
+
+@interface SkeletonKing : NSObject
+{
+    int characterState;
+    BOOL onPlatform;
+    BOOL onEdge;
+    BOOL shotFire;
+    BOOL shotImps;
+    BOOL filtered;
+    int runs;
+    int jumpattacks;
+    int chargeattacks;
+}
+
+- (void)dealloc;
+- (void)Imp3;
+- (void)Imp2;
+- (void)Imp1;
+- (void)Impfx3;
+- (void)Impfx2;
+- (void)Impfx1;
+- (void)spawnImps;
+- (void)throwboomer;
+- (void)shootFireballs;
+- (void)novisible;
+- (void)bossExplosion;
+- (void)chooseAttack;
+- (void)switchToIdle;
+- (void)stopCharge;
+- (void)trail;
+- (void)startCharge;
+- (void)changeState:(int)arg1;
+- (void)charge;
+- (void)updateStateWithDeltaTime:(double)arg1;
+@end
+
+
+

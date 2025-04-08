@@ -1,7 +1,5 @@
 #include "header.h"
-#include "SkeletonKing.h"
-#include <substrate.h>
-#include "GameObject.h"
+#include <substrate.h> //for MSHookIVar
 
 %hook CCSprite
 - (BOOL)isFrameDisplayed:(id)arg1 {
@@ -11,15 +9,13 @@
 
 %hook GameObject
 - (void)createLifeBar:(id)arg1 {
-    MSHookIvar<float>(self, "life") = 100.0;
-    MSHookIvar<float>(self, "maxlife") = 100.0;
-     %orig;
+    %orig;
 }
 %end
 
 %hook CCDirectorIOS
 - (BOOL)enableRetinaDisplay:(BOOL)arg1 {
-     return true;
+     return false; //make good resolution always, hooked to test
 }
 %end
 
@@ -43,6 +39,9 @@
 //     return;
 //} - DEPRECATED
 // ==== PROPERTIES ====
+- (int)onConveyor {
+     return 0;
+}
 
 - (BOOL)isStunned {
      return true;
@@ -57,7 +56,7 @@
 }
 
 - (BOOL)shieldEnabled {
-     return true;
+     return true; // but for what?...
 }
 
 
@@ -135,4 +134,16 @@
 
 
 %end
+
+
+
+
+%hook Gate
+- (BOOL)nokey {
+     return false;
+}
+- (BOOL)opengate {
+     return true;
+}
+%end 
 
