@@ -410,3 +410,17 @@
 - (id)init;
 
 @end
+
+@interface Door : NSObject
+{
+    struct b2World *world;
+    struct CGPoint startpos;
+    BOOL destroyed;
+}
+
+- (void)dealloc;
+- (void)updateStateWithDeltaTime:(double)arg1;
+- (void)createBodyAtLocation:(struct CGPoint)arg1;
+- (id)initWithWorld:(struct b2World *)arg1 atLocation:(struct CGPoint)arg2 isFlipped:(BOOL)arg3;
+
+@end

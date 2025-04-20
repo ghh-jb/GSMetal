@@ -36,21 +36,12 @@ int weapon = 0;
      %orig;
      my_nslog_internal("[GS] House: %s", [[arg1 description] UTF8String]);
 }
-// - (void)onEnter {
-//      BOOL chap2unlocked = MSHookIvar<BOOL>(self, "chap2unlocked");
-//      BOOL chap3unlocked = MSHookIvar<BOOL>(self, "chap3unlocked");
-//      BOOL chap4unlocked = MSHookIvar<BOOL>(self, "chap4unlocked");
-//      BOOL chap5unlocked = MSHookIvar<BOOL>(self, "chap5unlocked");
-//      BOOL chap6unlocked = MSHookIvar<BOOL>(self, "chap6unlocked");
-//      MSHookIvar<BOOL>(self, "chap2unlocked") = false;
-//      MSHookIvar<BOOL>(self, "chap3unlocked") = false; 
-//      MSHookIvar<BOOL>(self, "chap4unlocked") = false;
-//      MSHookIvar<BOOL>(self, "chap5unlocked") = false;
-//      MSHookIvar<BOOL>(self, "chap6unlocked") = false;
-//      int levelsUnlocked = MSHookIvar<int>(self, "levelsUnlocked");
-//      my_nslog_internal("[GS] 2:%i 3:%i 4:%i 5:%i 6:%i lvl:%i", chap2unlocked, chap3unlocked,chap4unlocked,chap5unlocked,chap6unlocked, levelsUnlocked);
-//      %orig;
-// }
+- (void)onEnter {
+     NSUserDefaults *us = MSHookIvar<NSUserDefaults*>(self, "us");
+     NSLog(@"[GS] NSUserDefaults %@", [us dictionaryRepresentation]);
+    // BOOL isScrolled;
+     %orig;
+}
 %end
 
 
@@ -65,7 +56,7 @@ int weapon = 0;
 
 %hook CCDirectorIOS
 - (BOOL)enableRetinaDisplay:(BOOL)arg1 {
-     return true; //make good resolution always, hooked to test
+     return true; //make good quality always, hooked to test
 }
 %end
 
@@ -201,6 +192,9 @@ int weapon = 0;
 
 
 %hook GameLayer
+- (void)inLava {
+     return;
+}
 - (void)onEnter {
      my_nslog_internal("[GS] Entered");
      MSHookIvar<int>(self, "crystalCount") = 3;
@@ -209,6 +203,8 @@ int weapon = 0;
      MSHookIvar<BOOL>(self, "Treasure2get") = true;
      treasure1 = true;
      treasure2 = true; 
+     MSHookIvar<BOOL>(self, "hasKey") = true;
+
      %orig;
 }
 
@@ -258,16 +254,17 @@ int weapon = 0;
 %end 
 
 
-
-
 %ctor {
-     my_nslog_internal("[GS] Hello from GSMetal cheat for Goblin Sword game!!!");
-     my_nslog_internal("[GS] All logs marked with '[GS]' are logs of this dylib");
-     my_nslog_internal("[GS] This is currently under development");
-     my_nslog_internal("[GS] I(untether) am not responsible for any progress loss");
-     my_nslog_internal("[GS] Licensed unger GNU GENERAL PUBLIC LICENSE V3");
-     my_nslog_internal("[GS] Application is launching, have fun!");
-     my_nslog_internal("[GS] ============");
+     my_nslog_internal("#[GS] ============================================================");
+     my_nslog_internal("#[GS] Hello from GSMetal cheat for Goblin Sword game!!!");
+     my_nslog_internal("#[GS] Created by @ghh-jb (untether)");
+     my_nslog_internal("#[GS] Special thanks: @Max-TS, @Sergey5588 - moral help");
+     my_nslog_internal("#[GS] GSMetal is NOT for sale!");
+     my_nslog_internal("#[GS] All logs marked with '[GS]' are logs of this dylib");
+     my_nslog_internal("#[GS] This is currently under development");
+     my_nslog_internal("#[GS] I(untether) am not responsible for any progress loss");
+     my_nslog_internal("#[GS] Licensed unger GNU GENERAL PUBLIC LICENSE V3");
+     my_nslog_internal("#[GS] ============================================================");
 }
 
 
